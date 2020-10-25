@@ -1,0 +1,50 @@
+{
+  "name": "abbyz-npm-package-ts-template",
+  "version": "1.0.0",
+  "description": "Abby's awesome npm package",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint --ext .js,.ts,.tsx .",
+    "format": "prettier  --write \"src/**/*.ts\" ",
+    "validate": "npm-run-all --parallel format lint build",
+    "test": "jest",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlrandy/npm-package.git"
+  },
+  "keywords": [
+    "abby",
+    "npm",
+    "publish"
+  ],
+  "author": "dlrandy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dlrandy/npm-package/issues"
+  },
+  "homepage": "https://github.com/dlrandy/npm-package#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "eslint": "^7.12.0",
+    "eslint-config-prettier": "^6.14.0",
+    "jest": "^26.6.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.2",
+    "typescript": "^4.0.3"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
